@@ -3,9 +3,9 @@ import Navbar from "react-bootstrap/Navbar";
 
 export default function AppNavbar() {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" fixed="top">
       <Container>
-        <Navbar.Brand>Employee Manager</Navbar.Brand>
+        <Navbar.Brand>Employee Management System</Navbar.Brand>
       </Container>
     </Navbar>
   );

@@ -14,7 +14,7 @@ export default function EmployeeSearchById({
   const [id, setId] = useState("");
 
   return (
-    <Card className="mb-3">
+    <Card className="mb-3 mt-5">
       <Card.Body>
         <div className="d-flex flex-wrap gap-2 align-items-end">
           <Form.Group>
