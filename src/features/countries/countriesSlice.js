@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { http } from "../../api/http";
 
 export const fetchCountries = createAsyncThunk(
-  "countries/fetchAll",
+  "countries/fetchAll", //Action
   async (_, { rejectWithValue }) => {
     try {
       const res = await http.get("/country");
@@ -20,7 +20,7 @@ const countriesSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {}, 
   extraReducers: (b) => {
     b.addCase(fetchCountries.pending, (s) => {
       s.loading = true;

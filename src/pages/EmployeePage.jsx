@@ -15,7 +15,7 @@ import {
 
 import ErrorAlert from "../components/layout/ErrorAlert";
 import Loader from "../components/layout/Loader";
-import ConfirmModal from "../components/layout/ConfirmModel";
+import ConfirmModel from "../components/layout/ConfirmModel";
 import EmployeeList from "../components/employees/EmployeeList";
 import EmployeeForm from "../components/employees/EmployeeForm";
 import EmployeeSearchById from "../components/employees/EmployeeSearchById";
@@ -171,7 +171,7 @@ export default function EmployeesPage() {
         </>
       ) : (
         <EmployeeForm
-          title={`mode === "add" ? "Add Employee" : Edit Employee (ID: ${editing?.id})`}
+          title={mode === "add" ? "Add Employee" : `Edit Employee (ID: ${editing?.id})`}
           register={register}
           handleSubmit={handleSubmit}
           errors={errors}
@@ -182,10 +182,10 @@ export default function EmployeesPage() {
         />
       )}
 
-      <ConfirmModal
+      <ConfirmModel
         show={confirm.show}
         title="Delete employee?"
-        body={`Are you sure you want to delete "${confirm.emp?.name}" (ID: ${confirm.emp?.id})?`}
+        body={`Are you sure you want to delete "${confirm.emp?.name}"?`}
         onClose={closeConfirm}
         onConfirm={confirmDelete}
         busy={String(deletingId) === String(confirm.emp?.id)}
