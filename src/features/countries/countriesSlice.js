@@ -39,7 +39,7 @@ const countriesSlice = createSlice({
 
 export default countriesSlice.reducer;
 
-// helper selector
+// helper (selector)
 export const selectCountryNameById = (state, countryId) => {
   const found = state.countries.items.find((c) => String(c.id) === String(countryId));
   return found?.name || found?.country || found?.title || "Unknown";
