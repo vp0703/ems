@@ -131,6 +131,10 @@ export default function EmployeesPage() {
     if (res.meta.requestStatus !== "rejected") closeConfirm();
   };
 
+  const filteredEmployees = searchedEmployee
+  ? employees.filter((emp) => String(emp.id) === String(searchedEmployee.id))
+  : employees;
+
   const doSearchById = (id) => {
     dispatch(fetchEmployeeById(id));
   };
@@ -162,7 +166,8 @@ export default function EmployeesPage() {
           </div>
 
           <EmployeeList
-            employees={employees}
+            // employees={employees}
+              employees={filteredEmployees}
             getCountryName={getCountryName}
             onEdit={startEdit}
             onDelete={askDelete}

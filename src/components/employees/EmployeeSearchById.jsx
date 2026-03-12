@@ -8,8 +8,6 @@ export default function EmployeeSearchById({
   onClear,
   loading,
   error,
-  result,
-  getCountryName,
 }) {
   const [id, setId] = useState("");
 
@@ -41,7 +39,7 @@ export default function EmployeeSearchById({
 
         {error ? <div className="text-danger mt-3">{error}</div> : null}
 
-        {result ? (
+        {/* {result ? (
           <div className="mt-3">
             <div><b>Name:</b> {result.name}</div>
             <div><b>Email:</b> {result.email}</div>
@@ -50,7 +48,7 @@ export default function EmployeeSearchById({
             <div><b>State:</b> {result.state}</div>
             <div><b>District:</b> {result.district}</div>
           </div>
-        ) : null}
+        ) : null} */}
       </Card.Body>
     </Card>
   );
