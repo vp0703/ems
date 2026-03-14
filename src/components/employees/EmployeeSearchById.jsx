@@ -8,8 +8,6 @@ export default function EmployeeSearchById({
   onClear,
   loading,
   error,
-  result,
-  getCountryName,
 }) {
   const [id, setId] = useState("");
 
