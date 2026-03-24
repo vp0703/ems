@@ -166,7 +166,6 @@ export default function EmployeesPage() {
           </div>
 
           <EmployeeList
-            // employees={employees}
               employees={filteredEmployees}
             getCountryName={getCountryName}
             onEdit={startEdit}

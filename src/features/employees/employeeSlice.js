@@ -20,7 +20,6 @@ export const fetchEmployeeById = createAsyncThunk(
       const res = await http.get(`/employee/${id}`);
       return res.data;
     } catch (e) {
-      // MockAPI returns 404 -> treat as "not found"
       return rejectWithValue("Employee not found");
     }
   }
@@ -86,7 +85,6 @@ const employeesSlice = createSlice({
     },
   },
   extraReducers: (b) => {
-    // list
     b.addCase(fetchEmployees.pending, (s) => {
       s.loading = true; s.error = null;
     });
@@ -97,7 +95,6 @@ const employeesSlice = createSlice({
       s.loading = false; s.error = a.payload || "Failed to load employees";
     });
 
-    // search by id
     b.addCase(fetchEmployeeById.pending, (s) => {
       s.byIdLoading = true; s.byIdError = null; s.searchedEmployee = null;
     });
@@ -108,7 +105,6 @@ const employeesSlice = createSlice({
       s.byIdLoading = false; s.byIdError = a.payload || "Employee not found";
     });
 
-    // create/update
     b.addCase(createEmployee.pending, (s) => {
       s.saving = true; s.saveError = null;
     });
@@ -132,7 +128,6 @@ const employeesSlice = createSlice({
       s.saving = false; s.saveError = a.payload || "Failed to update";
     });
 
-    // delete (optimistic-ish: update immediately on success)
     b.addCase(deleteEmployee.pending, (s, a) => {
       s.deletingId = a.meta.arg; s.deleteError = null;
     });
